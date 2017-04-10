@@ -23,7 +23,7 @@ import rx.functions.Action1;
 
 /**
  * Created by jingbin on 16/11/21.
- * 展示干货的页面
+ * 第一栏入口。包括 每日推荐 福利 干货定制 大安卓板块
  */
 public class GankFragment extends BaseFragment<FragmentGankBinding> {
 

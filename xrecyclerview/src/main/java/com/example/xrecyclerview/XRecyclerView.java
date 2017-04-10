@@ -14,8 +14,10 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 
+
 /**
  * Created by jingbin on 2016/1/28.
+ * 封装的很好
  */
 public class XRecyclerView extends RecyclerView {
     private LoadingListener mLoadingListener;

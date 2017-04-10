@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.ActivityOptionsCompat;
+import android.util.Log;
 import android.widget.ImageView;
 
 import com.example.jingbin.cloudreader.R;
@@ -22,17 +23,23 @@ import rx.Subscription;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
+/**
+ * 这个继承，加上泛型也有点意思
+ */
 public class BookDetailActivity extends BaseHeaderActivity<HeaderBookDetailBinding, ActivityBookDetailBinding> {
 
     private BooksBean booksBean;
     private String mBookDetailUrl;
     private String mBookDetailName;
     public final static String EXTRA_PARAM = "bookBean";
+    final String TAG = "BookDetailActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book_detail);
+
+        Log.e(TAG,"onCreate");
 
         if (getIntent() != null) {
             booksBean = (BooksBean) getIntent().getSerializableExtra(EXTRA_PARAM);

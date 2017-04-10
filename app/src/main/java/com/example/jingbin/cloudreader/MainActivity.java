@@ -67,6 +67,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         initId();
         initRxBus();
+        //去掉此句 系统手机上没有区别。那意义何在呢
         StatusBarUtil.setColorNoTranslucentForDrawerLayout(MainActivity.this, drawerLayout, CommonUtils.getColor(R.color.colorTheme));
         initContentFragment();
         initDrawerLayout();

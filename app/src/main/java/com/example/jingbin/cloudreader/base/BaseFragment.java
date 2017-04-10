@@ -6,6 +6,7 @@ import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -51,10 +52,12 @@ public abstract class BaseFragment<SV extends ViewDataBinding> extends Fragment 
     }
 
     /**
+     * point 对我而言是 还不错的新方法
      * 在这里实现Fragment数据的缓加载.
      */
     @Override
     public void setUserVisibleHint(boolean isVisibleToUser) {
+        //Log.e("BaseFragment","setUserVisibleHint:"+isVisibleToUser);
         super.setUserVisibleHint(isVisibleToUser);
         if (getUserVisibleHint()) {
             mIsVisible = true;

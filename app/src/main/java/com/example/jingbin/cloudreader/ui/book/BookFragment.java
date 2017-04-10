@@ -38,7 +38,7 @@ public class BookFragment extends BaseFragment<FragmentBookBinding> {
         bindingView.vpBook.setAdapter(myAdapter);
         // 左右预加载页面的个数
         bindingView.vpBook.setOffscreenPageLimit(2);
-        myAdapter.notifyDataSetChanged();
+        myAdapter.notifyDataSetChanged();//意义何在?
         bindingView.tabBook.setTabMode(TabLayout.MODE_FIXED);
         bindingView.tabBook.setupWithViewPager(bindingView.vpBook);
         showContentView();

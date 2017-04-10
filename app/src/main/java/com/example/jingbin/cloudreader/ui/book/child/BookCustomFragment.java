@@ -7,6 +7,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 
 import com.example.jingbin.cloudreader.MainActivity;
 import com.example.jingbin.cloudreader.R;
@@ -36,6 +37,8 @@ public class BookCustomFragment extends BaseFragment<FragmentBookCustomBinding> 
     private MainActivity activity;
     private BookAdapter mBookAdapter;
     private GridLayoutManager mLayoutManager;
+    final String TAG = "BookCustomFragment";
+    boolean isLogPrint = false;
 
     @Override
     public int setContent() {
@@ -126,7 +129,8 @@ public class BookCustomFragment extends BaseFragment<FragmentBookCustomBinding> 
     }
 
     private void loadCustomData() {
-
+        if (isLogPrint)
+            Log.e(TAG, "loadCustomData");
         Subscription get = HttpUtils.getInstance().getDouBanServer().getBook(mType, mStart, mCount)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -154,8 +158,10 @@ public class BookCustomFragment extends BaseFragment<FragmentBookCustomBinding> 
                     public void onNext(BookBean bookBean) {
                         if (mStart == 0) {
                             if (bookBean != null && bookBean.getBooks() != null && bookBean.getBooks().size() > 0) {
+                                if (isLogPrint)
+                                    Log.e(TAG, "size:" + bookBean.getBooks().size());
 
-                                if (mBookAdapter==null) {
+                                if (mBookAdapter == null) {
                                     mBookAdapter = new BookAdapter(getActivity());
                                 }
                                 mBookAdapter.setList(bookBean.getBooks());
@@ -192,6 +198,13 @@ public class BookCustomFragment extends BaseFragment<FragmentBookCustomBinding> 
         addSubscription(get);
     }
 
+    @Override
+    public void onStop() {
+        super.onStop();
+        removeSubscription();//这样可以撤掉上面的接口返回
+        if (isLogPrint)
+            Log.e(TAG, "onStop");
+    }
 
     public void scrollRecycleView() {
         bindingView.xrvBook.addOnScrollListener(new RecyclerView.OnScrollListener() {
@@ -240,7 +253,7 @@ public class BookCustomFragment extends BaseFragment<FragmentBookCustomBinding> 
                 super.onScrolled(recyclerView, dx, dy);
                 lastVisibleItem = mLayoutManager.findLastVisibleItemPosition();
 
-                 /**StaggeredGridLayoutManager*/
+                /**StaggeredGridLayoutManager*/
 //                int[] into = new int[(mLayoutManager).getSpanCount()];
 //                lastVisibleItem = findMax(mLayoutManager.findLastVisibleItemPositions(into));
             }

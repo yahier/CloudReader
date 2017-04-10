@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.animation.Animation;
@@ -222,6 +223,7 @@ public class EverydayFragment extends BaseFragment<FragmentEverydayBinding> {
                     mLists.clear();
                 }
                 mLists = (ArrayList<List<AndroidBean>>) object;
+                Log.e(TAG,"showContentData :"+mLists.size());
                 if (mLists.size() > 0 && mLists.get(0).size() > 0) {
                     setAdapter(mLists);
                 } else {
@@ -355,7 +357,8 @@ public class EverydayFragment extends BaseFragment<FragmentEverydayBinding> {
         super.onPause();
         DebugUtil.error("-----EverydayFragment----onPause()");
         // 停止全部图片请求 跟随着Activity
-        Glide.with(getActivity()).pauseRequests();
+        Glide.with(getActivity()).pauseRequests();//yahier:厉害呀 这个方法
+        removeSubscription();
 
     }
 
