@@ -29,6 +29,7 @@ import java.util.List;
 
 /**
  * Created by jingbin on 2016/12/27.
+ * 转换的数据结构有点反人类.by yahier
  */
 
 public class EverydayAdapter extends BaseRecyclerViewAdapter<List<AndroidBean>> {
@@ -38,6 +39,12 @@ public class EverydayAdapter extends BaseRecyclerViewAdapter<List<AndroidBean>> 
     private static final int TYPE_TWO = 3;// 二张图
     private static final int TYPE_THREE = 4;// 三张图
 
+
+    /**
+     * 根据数据结构来区分 不同的布局
+     * @param position
+     * @return
+     */
     @Override
     public int getItemViewType(int position) {
         if (!TextUtils.isEmpty(getData().get(position).get(0).getType_title())) {
@@ -69,8 +76,8 @@ public class EverydayAdapter extends BaseRecyclerViewAdapter<List<AndroidBean>> 
 
     private class TitleHolder extends BaseRecyclerViewHolder<List<AndroidBean>, ItemEverydayTitleBinding> {
 
-        TitleHolder(ViewGroup parent, int title) {
-            super(parent, title);
+        TitleHolder(ViewGroup parent, int layoutId) {
+            super(parent, layoutId);
         }
 
         @Override

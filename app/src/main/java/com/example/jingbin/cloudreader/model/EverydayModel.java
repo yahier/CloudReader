@@ -1,6 +1,7 @@
 package com.example.jingbin.cloudreader.model;
 
 import android.text.TextUtils;
+import android.util.Log;
 
 import com.example.jingbin.cloudreader.app.ConstantsImageUrl;
 import com.example.jingbin.cloudreader.bean.AndroidBean;
@@ -8,7 +9,9 @@ import com.example.jingbin.cloudreader.bean.FrontpageBean;
 import com.example.jingbin.cloudreader.bean.GankIoDayBean;
 import com.example.jingbin.cloudreader.http.HttpUtils;
 import com.example.jingbin.cloudreader.http.RequestImpl;
+import com.example.jingbin.cloudreader.utils.LogUtil;
 import com.example.jingbin.cloudreader.utils.SPUtils;
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +26,7 @@ import rx.schedulers.Schedulers;
 
 /**
  * Created by jingbin on 2016/12/1.
- * 每日推荐model
+ * 每日推荐model  处理数据相关
  */
 
 public class EverydayModel {
@@ -76,6 +79,10 @@ public class EverydayModel {
             @Override
             public Observable<List<List<AndroidBean>>> call(GankIoDayBean gankIoDayBean) {
 
+
+                Gson gson = new Gson();
+                LogUtil.e("EverydayModel showRecy1",gson.toJson(gankIoDayBean));
+
                 List<List<AndroidBean>> lists = new ArrayList<>();
                 GankIoDayBean.ResultsBean results = gankIoDayBean.getResults();
 
@@ -104,6 +111,7 @@ public class EverydayModel {
                     addUrlList(lists, results.getApp(), "App");
                 }
 
+                LogUtil.e("EverydayModel showRecy2",gson.toJson(lists));
                 return Observable.just(lists);
             }
         };

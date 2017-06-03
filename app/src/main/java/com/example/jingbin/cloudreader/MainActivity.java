@@ -33,6 +33,7 @@ import com.example.jingbin.cloudreader.ui.menu.NavHomePageActivity;
 import com.example.jingbin.cloudreader.ui.one.OneFragment;
 import com.example.jingbin.cloudreader.utils.CommonUtils;
 import com.example.jingbin.cloudreader.utils.ImgLoadUtil;
+import com.example.jingbin.cloudreader.utils.ToastUtil;
 import com.example.jingbin.cloudreader.view.MyFragmentPagerAdapter;
 import com.example.jingbin.cloudreader.view.statusbar.StatusBarUtil;
 
@@ -81,7 +82,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         toolbar = mBinding.include.toolbar;
         llTitleMenu = mBinding.include.llTitleMenu;
         vpContent = mBinding.include.vpContent;
-        fab.setVisibility(View.GONE);
+        fab.setVisibility(View.VISIBLE);
 
         llTitleGank = mBinding.include.ivTitleGank;
         llTitleOne = mBinding.include.ivTitleOne;

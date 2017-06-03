@@ -49,6 +49,7 @@ import java.util.concurrent.atomic.AtomicLong;
 
 /**
  * @author Michael Yang（www.yangfuhai.com） update at 2013.08.07
+ * 这个类还不错 可以认真研读一番
  */
 public class ACache {
 	public static final int TIME_HOUR = 60 * 60;

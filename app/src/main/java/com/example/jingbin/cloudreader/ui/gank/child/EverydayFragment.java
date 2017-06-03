@@ -93,6 +93,7 @@ public class EverydayFragment extends BaseFragment<FragmentEverydayBinding> {
         animation.setRepeatCount(10);
         bindingView.ivLoading.setAnimation(animation);
         animation.startNow();
+        animation.start();
 
         maCache = ACache.get(getContext());
         mEverydayModel = new EverydayModel();
@@ -213,8 +214,9 @@ public class EverydayFragment extends BaseFragment<FragmentEverydayBinding> {
 
 
     /**
-     * 加载正文内容
+     * 请求网络 加载正文内容
      */
+    //哈哈
     private void showContentData() {
         mEverydayModel.showRecyclerViewData(new RequestImpl() {
             @Override

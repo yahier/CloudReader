@@ -12,115 +12,103 @@
             android:layout_marginTop="18dp"
             android:orientation="horizontal">
 
+            <!-- 三栏图标的大栏 -->
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center_vertical">
 
-                <RelativeLayout
+
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="35dp">
+                    android:layout_marginStart="35dp"
+                    android:orientation="vertical">
 
-                    <LinearLayout
+                    <ImageButton
+                        android:id="@+id/ib_xiandu"
+                        android:layout_width="53dp"
+                        android:layout_height="53dp"
+                        android:background="@drawable/home_middle_fm" />
+
+                    <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical">
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="8dp"
+                        android:text="干货闲读"
+                        android:textColor="@color/colorContent"
+                        android:textSize="12sp" />
+                </LinearLayout>
 
-                        <ImageButton
-                            android:id="@+id/ib_xiandu"
-                            android:layout_width="53dp"
-                            android:layout_height="53dp"
-                            android:background="@drawable/home_middle_fm" />
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_horizontal"
-                            android:layout_marginTop="8dp"
-                            android:text="干货闲读"
-                            android:textColor="@color/colorContent"
-                            android:textSize="12sp" />
-                    </LinearLayout>
-                </RelativeLayout>
-
-                <RelativeLayout
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerInParent="true">
+                    android:layout_centerInParent="true"
+                    android:gravity="center"
+                    android:orientation="vertical">
 
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:orientation="vertical">
+                    <FrameLayout
+                        android:id="@+id/fl_everyday"
+                        android:layout_width="53dp"
+                        android:layout_height="53dp"
+                        android:clickable="true">
 
-                        <FrameLayout
-                            android:id="@+id/fl_everyday"
+                        <ImageView
+                            android:id="@+id/daily_btn"
                             android:layout_width="53dp"
                             android:layout_height="53dp"
-                            android:clickable="true">
-
-                            <ImageView
-                                android:id="@+id/daily_btn"
-                                android:layout_width="53dp"
-                                android:layout_height="53dp"
-                                android:background="@drawable/home_middle_day" />
-
-                            <TextView
-                                android:id="@+id/tv_daily_text"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:text="xx"
-                                android:textColor="@color/select_gank_day"
-                                android:textSize="25sp" />
-
-                        </FrameLayout>
+                            android:background="@drawable/home_middle_day" />
 
                         <TextView
-                            android:id="@+id/textView4"
+                            android:id="@+id/tv_daily_text"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            android:text="每日干货推荐"
-                            android:textColor="@color/colorContent"
-                            android:textSize="12sp" />
+                            android:layout_gravity="center"
+                            android:text="xx"
+                            android:textColor="@color/select_gank_day"
+                            android:textSize="25sp" />
 
-                    </LinearLayout>
+                    </FrameLayout>
+
+                    <TextView
+                        android:id="@+id/textView4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="每日干货推荐"
+                        android:textColor="@color/colorContent"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
 
 
-                </RelativeLayout>
-
-                <RelativeLayout
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
-                    android:layout_marginEnd="35dp">
+                    android:layout_marginEnd="35dp"
+                    android:orientation="vertical">
 
-                    <LinearLayout
+                    <ImageButton
+                        android:id="@+id/ib_movie_hot"
+                        android:layout_width="53dp"
+                        android:layout_height="53dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/home_middle_rank" />
+
+                    <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical">
+                        android:layout_gravity="center"
+                        android:layout_marginTop="8dp"
+                        android:text="新电影热映榜"
+                        android:textColor="@color/colorContent"
+                        android:textSize="12sp" />
+                </LinearLayout>
 
-                        <ImageButton
-                            android:id="@+id/ib_movie_hot"
-                            android:layout_width="53dp"
-                            android:layout_height="53dp"
-                            android:layout_gravity="center"
-                            android:background="@drawable/home_middle_rank" />
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_marginTop="8dp"
-                            android:text="新电影热映榜"
-                            android:textColor="@color/colorContent"
-                            android:textSize="12sp" />
-                    </LinearLayout>
-
-                </RelativeLayout>
             </RelativeLayout>
 
         </LinearLayout>

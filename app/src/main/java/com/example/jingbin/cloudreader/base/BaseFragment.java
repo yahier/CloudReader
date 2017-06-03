@@ -22,6 +22,7 @@ import rx.subscriptions.CompositeSubscription;
 
 /**
  * 是没有title的Fragment
+ * 这个泛型加模板模式的效果不错呀
  */
 public abstract class BaseFragment<SV extends ViewDataBinding> extends Fragment {
 
